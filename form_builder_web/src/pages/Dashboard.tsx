@@ -194,7 +194,7 @@ const Dashboard: React.FC = () => {
                         <p>Download the Android app to manage leads on the go.</p>
                     </div>
                 </div>
-                <button className="download-btn" onClick={() => window.open('https://github.com/vaibhavloop111/VXlead/releases', '_blank')}>
+                <button className="download-btn" onClick={() => window.open('https://v-xlead.vercel.app/app.apk', '_blank')}>
                     <Download size={18} /> Download APK
                 </button>
             </section>
