@@ -37,6 +37,7 @@ export type RedirectMode = 'stay' | 'url' | 'whatsapp';
 export interface SubmitButtonConfig {
     text: string;
     color: string;
+    buttonTextColor?: string;
     fullWidth: boolean;
 }
 

@@ -36,6 +36,7 @@ const FormEditor: React.FC = () => {
     const [activeModal, setActiveModal] = useState<'field' | 'branding' | 'settings' | 'title' | null>(null);
     const [activeFieldId, setActiveFieldId] = useState<string | null>(null);
     const [isAdjustingCover, setIsAdjustingCover] = useState(false);
+    const [showFieldPicker, setShowFieldPicker] = useState(false);
     const coverInputRef = useRef<HTMLInputElement>(null);
     const dpInputRef = useRef<HTMLInputElement>(null);
 

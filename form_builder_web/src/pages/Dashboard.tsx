@@ -9,10 +9,6 @@ import {
 } from 'lucide-react';
 import './Dashboard.css';
 
-interface Stage {
-    id: string;
-    name: string;
-}
 
 interface Lead {
     id: string;
@@ -28,10 +24,6 @@ interface FormItem {
     slug?: string;
 }
 
-interface ProfileData {
-    username?: string;
-    is_public?: boolean;
-}
 
 const Dashboard: React.FC = () => {
     const { user } = useAuth();
@@ -40,7 +32,6 @@ const Dashboard: React.FC = () => {
     const [totalLeads, setTotalLeads] = useState(0);
     const [newToday, setNewToday] = useState(0);
     const [totalForms, setTotalForms] = useState(0);
-    const [activeForms, setActiveForms] = useState(0);
     const [recentLeads, setRecentLeads] = useState<Lead[]>([]);
     const [forms, setForms] = useState<FormItem[]>([]);
     const [loading, setLoading] = useState(true);
@@ -57,20 +48,17 @@ const Dashboard: React.FC = () => {
                 leadsRes,
                 newTodayRes,
                 formsAllRes,
-                formsActiveRes,
                 recentRes,
             ] = await Promise.all([
                 supabase.from('leads').select('*', { count: 'exact', head: true }).eq('user_id', user.id),
                 supabase.from('leads').select('*', { count: 'exact', head: true }).eq('user_id', user.id).gte('created_at', today.toISOString()),
                 supabase.from('forms').select('*', { count: 'exact', head: true }).eq('user_id', user.id),
-                supabase.from('forms').select('*', { count: 'exact', head: true }).eq('user_id', user.id).eq('is_published', true),
                 supabase.from('leads').select('id, name, stage_id, created_at').eq('user_id', user.id).order('created_at', { ascending: false }).limit(3),
             ]);
 
             setTotalLeads(leadsRes.count || 0);
             setNewToday(newTodayRes.count || 0);
             setTotalForms(formsAllRes.count || 0);
-            setActiveForms(formsActiveRes.count || 0);
             setRecentLeads(recentRes.data || []);
 
             const { data: formsList } = await supabase

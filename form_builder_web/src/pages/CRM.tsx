@@ -65,6 +65,7 @@ const CRM: React.FC = () => {
     const [newNote, setNewNote] = useState('');
     const [savingNote, setSavingNote] = useState(false);
     const [followUpDate, setFollowUpDate] = useState('');
+    const [activeStageId, setActiveStageId] = useState<string | null>(null);
 
     const fetchData = useCallback(async () => {
         if (!user) return;
