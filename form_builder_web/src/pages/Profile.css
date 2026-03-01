@@ -424,27 +424,48 @@ input:checked+.slider:before {
     margin: 0;
 }
 
-.profile-link-card {
+.profile-link-display {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    background: #F0F7FF;
-    border: 1px solid #CCE3FF;
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 13px;
-    color: #0066FF;
-    margin-top: 4px;
+    gap: 12px;
+    background: rgba(0, 102, 255, 0.05);
+    border: 1px solid rgba(0, 102, 255, 0.15);
+    padding: 6px 16px;
+    border-radius: 12px;
+    margin-top: 8px;
     cursor: pointer;
     transition: all 0.2s;
 }
 
-.profile-link-card:hover {
-    background: #E0EFFF;
+.profile-link-display:hover {
+    background: rgba(0, 102, 255, 0.08);
+    border-color: rgba(0, 102, 255, 0.3);
 }
 
-.profile-link-card .text-success {
-    color: #10B981;
+.profile-url {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4A55A2;
+}
+
+.copy-action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: #4A55A2;
+    color: #fff;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-left: 8px;
+}
+
+.input-hint {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
 }
 
 .crop-close-btn {

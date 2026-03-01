@@ -34,7 +34,6 @@ const Dashboard: React.FC = () => {
     const [totalForms, setTotalForms] = useState(0);
     const [recentLeads, setRecentLeads] = useState<Lead[]>([]);
     const [forms, setForms] = useState<FormItem[]>([]);
-    const [activeStageId, setActiveStageId] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
     const [installPrompt, setInstallPrompt] = useState<any>(null);
 

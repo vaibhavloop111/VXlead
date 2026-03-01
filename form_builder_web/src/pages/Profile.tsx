@@ -189,13 +189,15 @@ const Profile: React.FC = () => {
     return (
         <div className="profile-editor-container">
             <div className="profile-editor-header">
-                <div>
+                <div className="profile-header-info">
                     <h1>Edit Profile</h1>
                     {username && (
-                        <div className="profile-link-card" onClick={copyProfileLink}>
+                        <div className="profile-link-display" onClick={copyProfileLink}>
                             <Globe size={14} />
-                            <span>v-xlead.vercel.app/u/{username}</span>
-                            {copied ? <Check size={14} className="text-success" /> : <Copy size={14} />}
+                            <span className="profile-url">v-xlead.vercel.app/u/{username}</span>
+                            <button className="copy-action-btn">
+                                {copied ? <><Check size={14} /> Copied!</> : <><Copy size={14} /> Copy Link</>}
+                            </button>
                         </div>
                     )}
                 </div>
@@ -235,9 +237,10 @@ const Profile: React.FC = () => {
                     <div className="input-group-lg">
                         <label>Username</label>
                         <div className="username-input">
-                            <span>vsleads.com/u/</span>
+                            <span>v-xlead.vercel.app/u/</span>
                             <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="username" />
                         </div>
+                        <p className="input-hint">This will be your public link handle.</p>
                     </div>
                     <div className="input-group-lg">
                         <label>Bio</label>
