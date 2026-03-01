@@ -235,13 +235,17 @@ export const BuilderProvider: React.FC<{ children: ReactNode }> = ({ children })
 
             if (result.error) throw result.error;
 
+            if (!result.data || result.data.length === 0) {
+                throw new Error("Failed to retrieve the published form data.");
+            }
             const publishedForm = result.data[0];
             setSchema(prev => ({ ...prev, id: publishedForm.id, user_id: publishedForm.user_id }));
 
             return { success: true, id: publishedForm.id };
-        } catch (error: unknown) {
+        } catch (error: any) {
             console.error("Error publishing form:", error);
-            return { success: false, error: error instanceof Error ? error.message : 'Unknown error' };
+            const errorMsg = error.message || (typeof error === 'string' ? error : 'An unexpected error occurred while publishing.');
+            return { success: false, error: errorMsg };
         }
     };
 
