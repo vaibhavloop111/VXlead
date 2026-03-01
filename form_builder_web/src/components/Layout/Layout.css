@@ -1,0 +1,133 @@
+.layout-container {
+    display: flex;
+    height: 100vh;
+    background-color: #000;
+    color: #fff;
+    overflow: hidden;
+}
+
+.sidebar {
+    width: 260px;
+    background-color: #0a0a0a;
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    padding: 24px 16px;
+}
+
+.sidebar-header {
+    padding: 0 12px 32px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #7895CB;
+    letter-spacing: 1px;
+}
+
+.sidebar-nav {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 12px;
+    color: #888;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: #fff;
+}
+
+.nav-item.active {
+    background-color: rgba(120, 149, 203, 0.1);
+    color: #7895CB;
+}
+
+.sidebar-footer {
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #000;
+    background-image:
+        radial-gradient(circle at 50% 0%, rgba(120, 149, 203, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(120, 149, 203, 0.05) 0%, transparent 50%);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 75px;
+        flex-direction: row;
+        padding: 0;
+        border-right: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        background-color: rgba(10, 10, 10, 0.85);
+        backdrop-filter: blur(25px) saturate(180%);
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        z-index: 1000;
+        justify-content: center;
+        box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar-header,
+    .sidebar-footer {
+        display: none;
+    }
+
+    .sidebar-nav {
+        flex-direction: row;
+        width: 100%;
+        max-width: 500px;
+        justify-content: space-around;
+        padding: 0 10px;
+    }
+
+    .nav-item {
+        flex: 1;
+        flex-direction: column;
+        gap: 4px;
+        font-size: 10px;
+        padding: 10px 0;
+        justify-content: center;
+        border-radius: 0;
+        background: transparent !important;
+    }
+
+    .nav-item span {
+        font-weight: 500;
+        letter-spacing: 0.2px;
+    }
+
+    .nav-item.active {
+        color: #7895CB;
+    }
+
+    .nav-item.active svg {
+        transform: scale(1.1);
+        filter: drop-shadow(0 0 10px rgba(120, 149, 203, 0.4));
+    }
+
+    .main-content {
+        padding-bottom: 90px;
+        height: 100vh;
+        overflow-y: auto;
+    }
+}

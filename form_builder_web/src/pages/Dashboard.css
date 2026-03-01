@@ -1,0 +1,340 @@
+/* ===== Home Hub / Dashboard ===== */
+.dash-page {
+    padding: 32px 28px 120px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Hero Section */
+.dash-hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+}
+
+.dash-hero h1 {
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    margin: 0 0 8px;
+    letter-spacing: -0.5px;
+}
+
+.dash-hero p {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.dash-hero-badge {
+    padding: 6px 14px;
+    background: rgba(120, 149, 203, 0.1);
+    border: 1px solid rgba(120, 149, 203, 0.2);
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #7895CB;
+    text-transform: uppercase;
+}
+
+/* Stats Banner */
+.dash-stats-banner {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 24px;
+    margin-bottom: 40px;
+}
+
+.banner-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.banner-val {
+    font-size: 28px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 4px;
+}
+
+.banner-lab {
+    font-size: 11px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.banner-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* Tools Grid */
+.dash-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.tool-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.tool-card:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-4px);
+}
+
+.tool-card.premium-gradient {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
+}
+
+.tool-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.03);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7895CB;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.tool-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 6px;
+}
+
+.tool-info p {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.5;
+    margin: 0 0 20px;
+}
+
+.tool-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-top: auto;
+}
+
+.tool-card:hover .tool-footer {
+    color: #7895CB;
+}
+
+/* App Download Card */
+.app-download-card {
+    background: linear-gradient(90deg, #111 0%, #0a0a0a 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 24px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+
+.app-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #7895CB;
+}
+
+.app-info h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px;
+}
+
+.app-info p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: #fff;
+    color: #000;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.download-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Activity Grid */
+.dash-activity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+}
+
+.dash-section-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
+.recent-activity-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.activity-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.015);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.activity-item:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.activity-circle {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7895CB;
+    box-shadow: 0 0 10px #7895CB;
+}
+
+.activity-details {
+    flex: 1;
+}
+
+.activity-name {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ccc;
+    margin-bottom: 2px;
+}
+
+.activity-time,
+.activity-status {
+    font-size: 11px;
+    color: #444;
+    font-weight: 600;
+}
+
+.activity-status.published {
+    color: #4ade80;
+}
+
+.activity-status.draft {
+    color: #444;
+}
+
+.no-activity {
+    font-size: 13px;
+    color: #444;
+    font-style: italic;
+    padding: 20px;
+}
+
+/* Utils */
+.dash-loading {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.dash-loading p {
+    margin-top: 16px;
+    color: #444;
+    font-weight: 600;
+}
+
+.no-margin {
+    margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 800px) {
+    .dash-activity-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .dash-page {
+        padding: 24px 16px 120px;
+    }
+
+    .dash-hero {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .dash-stats-banner {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .banner-divider {
+        display: none;
+    }
+
+    .banner-item {
+        min-width: 80px;
+    }
+
+    .app-download-card {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+    .app-info {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,633 @@
+/* ===== Form Builder — Premium Tally-style Layout ===== */
+.tally-editor {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: #000;
+    color: #fff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ===== Top Bar ===== */
+.tally-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 24px;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 100;
+}
+
+.tally-topbar-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #7895CB;
+    cursor: pointer;
+}
+
+.tally-topbar-center {
+    display: flex;
+    gap: 24px;
+}
+
+.tally-topbar-link {
+    background: none;
+    border: none;
+    color: #888;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.tally-topbar-link:hover {
+    color: #fff;
+}
+
+.tally-topbar-link.disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.tally-publish-btn {
+    padding: 8px 20px;
+    background: #7895CB;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tally-publish-btn:hover {
+    background: #6a84b8;
+    box-shadow: 0 4px 12px rgba(120, 149, 203, 0.3);
+}
+
+/* Banner */
+.tally-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 10px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.tally-banner.success {
+    background: rgba(34, 197, 94, 0.1);
+    color: #4ade80;
+    border-bottom: 1px solid rgba(34, 197, 94, 0.1);
+}
+
+.tally-banner.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #f87171;
+    border-bottom: 1px solid rgba(239, 68, 68, 0.1);
+}
+
+.tally-banner a,
+.tally-banner button {
+    background: none;
+    border: none;
+    color: #7895CB;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* ===== Canvas ===== */
+.tally-canvas-scroll {
+    flex: 1;
+    overflow-y: auto;
+    padding: 40px 20px 100px;
+}
+
+.tally-canvas {
+    max-width: 650px;
+    margin: 0 auto;
+    background: #0a0a0a;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Cover Image */
+.tally-cover {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background: #111;
+}
+
+.tally-cover-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.tally-cover-actions {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tally-cover:hover .tally-cover-actions {
+    opacity: 1;
+}
+
+.tally-cover-btn {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tally-cover-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.tally-cover-adjuster {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(12px);
+    padding: 12px 20px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    z-index: 100;
+}
+
+.adjuster-label {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.tally-cover-adjuster input[type="range"] {
+    width: 150px;
+    cursor: pointer;
+}
+
+.adjuster-done {
+    background: #fff;
+    color: #000;
+    border: none;
+    padding: 6px 16px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tally-cover.adjusting {
+    height: 300px;
+    transition: height 0.3s ease;
+}
+
+/* Logo Area */
+.tally-logo-area {
+    position: relative;
+    margin-left: 40px;
+    margin-top: -40px;
+    display: inline-block;
+    z-index: 10;
+}
+
+.tally-logo {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    border: 4px solid #0a0a0a;
+    background-color: #1a1a1a;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.tally-logo-remove {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Quick Actions */
+.tally-quick-actions {
+    display: flex;
+    gap: 16px;
+    padding: 24px 40px 12px;
+}
+
+.tally-action-link {
+    background: none;
+    border: none;
+    color: #555;
+    font-size: 13px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 6px 0;
+    transition: color 0.2s;
+}
+
+.tally-action-link:hover {
+    color: #888;
+}
+
+/* Form Body */
+.tally-form-body {
+    padding: 24px 40px 60px;
+}
+
+.tally-title-trigger {
+    cursor: pointer;
+    margin-bottom: 32px;
+    padding: 12px;
+    margin-left: -12px;
+    border-radius: 12px;
+    transition: background 0.2s;
+}
+
+.tally-title-trigger:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.tally-title-preview {
+    font-size: 32px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.tally-desc-preview {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+/* Field Preview Styling */
+.tally-field.vs-field-premium {
+    position: relative;
+    padding: 16px 12px;
+    margin-bottom: 12px;
+    margin-left: -12px;
+    margin-right: -12px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.tally-field.vs-field-premium:hover {
+    background: rgba(255, 255, 255, 0.03);
+    border-color: rgba(255, 255, 255, 0.05);
+}
+
+.tally-field.vs-field-premium.active {
+    background: rgba(120, 149, 203, 0.05);
+    border-color: rgba(120, 149, 203, 0.2);
+}
+
+.tally-drag {
+    color: #222;
+    margin-right: 12px;
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.tally-field.vs-field-premium:hover .tally-drag {
+    opacity: 1;
+}
+
+.tally-field-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.vs-label-preview {
+    font-size: 15px;
+    font-weight: 600;
+    color: #ddd;
+}
+
+.tally-required {
+    color: #ef4444;
+    margin-left: 4px;
+}
+
+.vs-para-preview {
+    font-size: 14px;
+    color: #777;
+    margin: 0;
+}
+
+.vs-heading-preview {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    margin: 0;
+}
+
+.tally-input-row {
+    display: flex;
+    align-items: center;
+}
+
+.tally-fake-input,
+.tally-fake-select,
+.tally-fake-file {
+    flex: 1;
+    padding: 12px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #444;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tally-fake-file {
+    border-style: dashed;
+    justify-content: flex-start;
+    gap: 8px;
+}
+
+.tally-options-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.tally-opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #888;
+    font-size: 14px;
+}
+
+.tally-radio-dot,
+.tally-check-box {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #222;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.tally-check-box {
+    border-radius: 4px;
+}
+
+.tally-hr {
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    margin: 10px 0;
+}
+
+/* Submit Area */
+.tally-submit-area {
+    margin-top: 48px;
+}
+
+.tally-submit-preview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 32px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    border: none;
+    cursor: default;
+}
+
+/* ===== Field Picker Dropdown ===== */
+.vs-add-field-container {
+    margin: 24px 0;
+    position: relative;
+}
+
+.vs-add-field-btn {
+    background: none;
+    border: 1px dashed rgba(255, 255, 255, 0.1);
+    color: #555;
+    padding: 12px;
+    border-radius: 12px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.vs-add-field-btn:hover {
+    border-color: #7895CB;
+    color: #7895CB;
+    background: rgba(120, 149, 203, 0.05);
+}
+
+.vs-field-picker-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    width: 320px;
+    background: #111;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+    padding: 20px;
+    z-index: 200;
+}
+
+.vs-picker-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.vs-picker-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.vs-picker-item:hover {
+    background: rgba(120, 149, 203, 0.1);
+    border-color: #7895CB;
+    color: #7895CB;
+}
+
+.vs-picker-item .vs-picker-icon {
+    color: #444;
+}
+
+.vs-picker-item:hover .vs-picker-icon {
+    color: #7895CB;
+}
+
+.vs-picker-label {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+/* Modals & Forms UI (Tally-style simple and elegant) */
+.vs-form-group {
+    margin-bottom: 24px;
+}
+
+.vs-form-group label {
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.vs-input,
+.vs-textarea,
+.vs-select {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: all 0.2s;
+    font-family: inherit;
+    box-sizing: border-box;
+}
+
+.vs-input:focus,
+.vs-textarea:focus {
+    border-color: #7895CB;
+    background: rgba(120, 149, 203, 0.05);
+}
+
+.vs-primary-btn {
+    width: 100%;
+    padding: 16px;
+    background: #7895CB;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.vs-primary-btn:hover {
+    background: #6a84b8;
+}
+
+.tally-radio-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tally-radio-opt {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    color: #888;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.tally-radio-opt:hover {
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.tally-radio-opt.active {
+    background: rgba(120, 149, 203, 0.1);
+    border-color: #7895CB;
+    color: #fff;
+}
+
+.tally-radio-opt input {
+    display: none;
+}
+
+.vs-toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+}
+
+.tally-hint {
+    font-size: 11px;
+    color: #444;
+    margin-top: 8px;
+}

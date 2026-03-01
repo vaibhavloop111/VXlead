@@ -1,0 +1,231 @@
+.public-profile-wrapper {
+    min-height: 100vh;
+    background-color: #000;
+    color: #fff;
+    padding-bottom: 80px;
+}
+
+.public-cover {
+    height: 300px;
+    background-color: #1a1a1a;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.public-container {
+    max-width: 800px;
+    margin: -100px auto 0;
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+}
+
+.public-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.public-avatar {
+    width: 140px;
+    height: 140px;
+    background-color: #7895CB;
+    background-size: cover;
+    background-position: center;
+    border-radius: 48px;
+    margin: 0 auto 24px;
+    border: 8px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    font-weight: bold;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.public-info h1 {
+    font-size: 36px;
+    margin-bottom: 4px;
+}
+
+.public-handle {
+    color: #7895CB;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.public-bio {
+    color: #888;
+    font-size: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.section-title {
+    font-size: 14px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.public-content-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.public-links-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.public-link-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 16px 24px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.public-link-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: translateY(-4px);
+    border-color: rgba(120, 149, 203, 0.3);
+}
+
+.link-icon-bg {
+    width: 44px;
+    height: 44px;
+    background: rgba(120, 149, 203, 0.1);
+    color: #7895CB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+}
+
+.link-text {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.public-forms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+}
+
+.public-form-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 24px;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.public-form-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    transform: scale(1.02);
+}
+
+.form-icon {
+    width: 52px;
+    height: 52px;
+    background: rgba(74, 85, 162, 0.1);
+    color: #4A55A2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+}
+
+.form-info h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.form-info p {
+    font-size: 13px;
+    color: #666;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #444;
+    grid-column: 1 / -1;
+}
+
+.public-footer {
+    margin-top: 100px;
+    text-align: center;
+    padding: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    color: #444;
+    font-size: 14px;
+}
+
+.public-footer span {
+    color: #7895CB;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.public-loading,
+.public-error {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    background: #000;
+    color: #fff;
+}
+
+.public-error h1 {
+    font-size: 48px;
+    color: #7895CB;
+}
+
+.public-error button {
+    background: #4A55A2;
+    color: #fff;
+    border: none;
+    padding: 12px 32px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+@media (max-width: 600px) {
+    .public-cover {
+        height: 200px;
+    }
+
+    .public-container {
+        margin-top: -70px;
+    }
+
+    .public-avatar {
+        width: 100px;
+        height: 100px;
+        border-radius: 32px;
+        font-size: 32px;
+    }
+
+    .public-info h1 {
+        font-size: 28px;
+    }
+}
