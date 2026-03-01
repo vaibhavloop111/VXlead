@@ -23,7 +23,8 @@ const Modal: React.FC<ModalProps> = ({
 
     useEffect(() => {
         if (isOpen) {
-            setRender(true);
+            // Defer state update to avoid synchronous setState in effect
+            setTimeout(() => setRender(true), 0);
             document.body.style.overflow = 'hidden';
         } else {
             const timer = setTimeout(() => {

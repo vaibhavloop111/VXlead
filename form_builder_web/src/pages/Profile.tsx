@@ -80,12 +80,15 @@ const Profile: React.FC = () => {
                 is_public: isPublic,
                 links,
                 updated_at: new Date().toISOString(),
-            });
+            }, { onConflict: 'user_id' });
 
         if (error) {
             setMsg({ type: 'error', text: error.message });
         } else {
             setMsg({ type: 'success', text: 'Profile updated successfully!' });
+            // Refresh profile data
+            const { data } = await supabase.from('profiles').select('*').eq('user_id', user.id).single();
+            if (data) setProfile(data);
         }
         setSaving(false);
     };

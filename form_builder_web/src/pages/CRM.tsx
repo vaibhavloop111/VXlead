@@ -322,7 +322,7 @@ const CRM: React.FC = () => {
                     <select
                         className="crm-sort-select"
                         value={sortBy}
-                        onChange={(e) => setSortBy(e.target.value as any)}
+                        onChange={(e) => setSortBy(e.target.value as 'newest' | 'oldest' | 'name')}
                     >
                         <option value="newest">Newest First</option>
                         <option value="oldest">Oldest First</option>

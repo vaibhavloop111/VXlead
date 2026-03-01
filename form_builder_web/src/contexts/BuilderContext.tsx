@@ -210,7 +210,11 @@ export const BuilderProvider: React.FC<{ children: ReactNode }> = ({ children })
             let slug = schema.title.toLowerCase().replace(/[^a-z0-9]/g, '-');
             if (!slug) slug = `form-${uuidv4().slice(0, 8)}`;
 
+            // Get current user ID for ownership
+            const { data: authData } = await supabase.auth.getUser();
+            const userId = authData.user?.id;
             const formData = {
+                user_id: userId,
                 title: schema.title || 'Untitled Form',
                 slug: slug,
                 fields: schema.fields,

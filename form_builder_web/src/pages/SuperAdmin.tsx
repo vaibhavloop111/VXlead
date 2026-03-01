@@ -62,8 +62,8 @@ const SuperAdmin: React.FC = () => {
                 totalForms: formsCount.count || 0,
                 activeCodes: codesRes.data?.length || 0
             });
-        } catch (err: any) {
-            setError(err.message);
+        } catch (err) {
+            setError((err as Error).message);
         } finally {
             setLoading(false);
         }
@@ -78,8 +78,8 @@ const SuperAdmin: React.FC = () => {
 
             if (error) throw error;
             setProfiles(profiles.map(p => p.user_id === userId ? { ...p, is_blocked: !currentStatus } : p));
-        } catch (err: any) {
-            alert('Error updating user: ' + err.message);
+        } catch (err) {
+            alert('Error updating user: ' + (err as Error).message);
         }
     };
 
@@ -104,8 +104,8 @@ const SuperAdmin: React.FC = () => {
             setAccessCodes([data[0], ...accessCodes]);
             setNewCode('');
             setIsAddingCode(false);
-        } catch (err: any) {
-            alert('Error adding code: ' + err.message);
+        } catch (err) {
+            alert('Error adding code: ' + (err as Error).message);
         }
     };
 
@@ -119,8 +119,8 @@ const SuperAdmin: React.FC = () => {
 
             if (error) throw error;
             setAccessCodes(accessCodes.filter(c => c.id !== id));
-        } catch (err: any) {
-            alert('Error deleting code: ' + err.message);
+        } catch (err) {
+            alert('Error deleting code: ' + (err as Error).message);
         }
     };
 

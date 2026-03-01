@@ -194,7 +194,7 @@ const Dashboard: React.FC = () => {
                         <p>Download the Android app to manage leads on the go.</p>
                     </div>
                 </div>
-                <button className="download-btn">
+                <button className="download-btn" onClick={() => window.open('https://github.com/<your-username>/<your-repo>/releases', '_blank')}>
                     <Download size={18} /> Download APK
                 </button>
             </section>
