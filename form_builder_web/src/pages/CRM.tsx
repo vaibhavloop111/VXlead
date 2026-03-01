@@ -22,7 +22,7 @@ interface Lead {
     user_id: string;
     created_at: string;
     follow_up_at?: string;
-    custom_fields?: Record<string, string>;
+    data?: Record<string, string>;
 }
 
 interface LeadNote {
@@ -511,11 +511,11 @@ const CRM: React.FC = () => {
                                 </div>
                             </div>
 
-                            {selectedLead.custom_fields && Object.keys(selectedLead.custom_fields).length > 0 && (
+                            {selectedLead.data && Object.keys(selectedLead.data).length > 0 && (
                                 <div className="lead-custom-data">
                                     <h4>Form Data</h4>
                                     <div className="custom-fields-grid">
-                                        {Object.entries(selectedLead.custom_fields).map(([key, value]) => (
+                                        {Object.entries(selectedLead.data).map(([key, value]) => (
                                             <div key={key} className="crm-detail-item">
                                                 <h5>{key}</h5>
                                                 <p>{value}</p>
