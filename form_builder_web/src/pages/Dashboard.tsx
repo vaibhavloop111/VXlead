@@ -34,7 +34,34 @@ const Dashboard: React.FC = () => {
     const [totalForms, setTotalForms] = useState(0);
     const [recentLeads, setRecentLeads] = useState<Lead[]>([]);
     const [forms, setForms] = useState<FormItem[]>([]);
+    const [activeStageId, setActiveStageId] = useState<string | null>(null);
     const [loading, setLoading] = useState(true);
+    const [installPrompt, setInstallPrompt] = useState<any>(null);
+
+    useEffect(() => {
+        const handleBeforeInstallPrompt = (e: any) => {
+            e.preventDefault();
+            setInstallPrompt(e);
+        };
+
+        window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+
+        return () => {
+            window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+        };
+    }, []);
+
+    const handleInstallPWA = async () => {
+        if (!installPrompt) {
+            alert("To install the app, please use your browser's 'Add to Home Screen' option.");
+            return;
+        }
+        installPrompt.prompt();
+        const { outcome } = await installPrompt.userChoice;
+        if (outcome === 'accepted') {
+            setInstallPrompt(null);
+        }
+    };
 
     const fetchAll = useCallback(async () => {
         if (!user) return;
@@ -194,8 +221,8 @@ const Dashboard: React.FC = () => {
                         <p>Download the Android app to manage leads on the go.</p>
                     </div>
                 </div>
-                <button className="download-btn" onClick={() => window.open('https://v-xlead.vercel.app/app.apk', '_blank')}>
-                    <Download size={18} /> Download APK
+                <button className="download-btn" onClick={handleInstallPWA}>
+                    <Smartphone size={18} /> {installPrompt ? 'Install App' : 'Add to Home Screen'}
                 </button>
             </section>
 
