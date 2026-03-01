@@ -374,8 +374,13 @@ input:checked+.slider:before {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 .crop-modal {
@@ -393,8 +398,15 @@ input:checked+.slider:before {
 }
 
 @keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .crop-modal-header {
@@ -405,10 +417,34 @@ input:checked+.slider:before {
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.crop-modal-header h2 {
-    font-size: 18px;
+.profile-editor-header h1 {
+    font-size: 24px;
     font-weight: 700;
-    color: #fff;
+    color: #1A1A1A;
+    margin: 0;
+}
+
+.profile-link-card {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #F0F7FF;
+    border: 1px solid #CCE3FF;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    color: #0066FF;
+    margin-top: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.profile-link-card:hover {
+    background: #E0EFFF;
+}
+
+.profile-link-card .text-success {
+    color: #10B981;
 }
 
 .crop-close-btn {

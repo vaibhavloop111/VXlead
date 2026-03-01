@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import { supabase } from '../supabaseClient';
-import { Camera, Globe, Link as LinkIcon, Trash2, GripVertical, Loader2, Save, X, ZoomIn, ZoomOut } from 'lucide-react';
+import { Camera, Globe, Link as LinkIcon, Trash2, GripVertical, Loader2, Save, X, ZoomIn, ZoomOut, Copy, Check } from 'lucide-react';
 import Cropper from 'react-easy-crop';
 import type { Area } from 'react-easy-crop';
 import getCroppedImg from '../utils/cropImage';
@@ -34,6 +34,7 @@ const Profile: React.FC = () => {
     const [isPublic, setIsPublic] = useState(false);
     const [links, setLinks] = useState<SocialLink[]>([]);
     const [msg, setMsg] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+    const [copied, setCopied] = useState(false);
 
     // Crop modal state
     const [cropModalOpen, setCropModalOpen] = useState(false);
@@ -177,13 +178,27 @@ const Profile: React.FC = () => {
     const removeLink = (id: string) => {
         setLinks(links.filter(l => l.id !== id));
     };
-
+    const copyProfileLink = () => {
+        const url = `${window.location.origin}/u/${username}`;
+        navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
     if (loading) return <div className="loading-state"><Loader2 className="spin" /> Loading Profile...</div>;
 
     return (
         <div className="profile-editor-container">
             <div className="profile-editor-header">
-                <h1>Edit Profile</h1>
+                <div>
+                    <h1>Edit Profile</h1>
+                    {username && (
+                        <div className="profile-link-card" onClick={copyProfileLink}>
+                            <Globe size={14} />
+                            <span>v-xlead.vercel.app/u/{username}</span>
+                            {copied ? <Check size={14} className="text-success" /> : <Copy size={14} />}
+                        </div>
+                    )}
+                </div>
                 <button className="save-btn" onClick={handleSave} disabled={saving}>
                     {saving ? <Loader2 className="spin" size={18} /> : <Save size={18} />}
                     <span>Save Changes</span>

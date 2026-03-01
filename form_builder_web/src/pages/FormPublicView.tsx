@@ -135,7 +135,7 @@ const FormPublicView: React.FC = () => {
                     user_id: schema.user_id,
                     name: nameField ? (flatAnswers[nameField.id] || 'N/A') : 'N/A',
                     phone: phoneField ? (flatAnswers[phoneField.id] || 'N/A') : 'N/A',
-                    data: flatAnswers,
+                    custom_fields: flatAnswers,
                     stage_id: schema.stage_id || null,
                 };
 

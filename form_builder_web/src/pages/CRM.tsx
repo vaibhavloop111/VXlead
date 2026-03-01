@@ -22,7 +22,7 @@ interface Lead {
     user_id: string;
     created_at: string;
     follow_up_at?: string;
-    data?: Record<string, string>;
+    custom_fields?: Record<string, string>;
 }
 
 interface LeadNote {
