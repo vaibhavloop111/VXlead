@@ -511,11 +511,11 @@ const CRM: React.FC = () => {
                                 </div>
                             </div>
 
-                            {selectedLead.data && Object.keys(selectedLead.data).length > 0 && (
-                                <div className="crm-detail-section">
-                                    <span className="crm-detail-label">Raw Form Data</span>
-                                    <div className="crm-detail-grid">
-                                        {Object.entries(selectedLead.data).map(([key, value]) => (
+                            {selectedLead.custom_fields && Object.keys(selectedLead.custom_fields).length > 0 && (
+                                <div className="lead-custom-data">
+                                    <h4>Form Data</h4>
+                                    <div className="custom-fields-grid">
+                                        {Object.entries(selectedLead.custom_fields).map(([key, value]) => (
                                             <div key={key} className="crm-detail-item">
                                                 <h5>{key}</h5>
                                                 <p>{value}</p>
